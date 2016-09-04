@@ -1,0 +1,24 @@
+extends layout
+
+block content
+ h2 Sign up 
+ form(method='post', action='/users/register',enctype='multipart/form-data')
+  div
+   label Name
+   input(name='name', type='text', placeholder='Enter Name')
+  div
+   label Email
+   input(name='email', type='email', placeholder='Enter Email')
+  div
+   label Username
+   input(name='username', type='text', placeholder='Enter Username')
+  div
+   label Password
+   input(name='password', type='password', placeholder='Enter Password')
+  div
+   label Confirm
+   input(name='password2', type='password', placeholder='Confirm Password')
+  div
+   label Profile Photo
+   input(name='profilephoto', type='file')
+  input(type='submit', name='submit',value='signup')

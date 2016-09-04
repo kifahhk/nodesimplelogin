@@ -1,7 +1,20 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    title Welcome
+    link(href='/stylesheets/style.css', rel='stylesheet')
+  body        
+    .menu
+      ul
+        li(class=(title == 'Users' ? 'active' : ''))
+          a(href='/') Users
+        li(class=(title == 'Sign up' ? 'active' : ''))
+          a(href='/users/signup') Sign up
+        li(class=(title == 'Login' ? 'active' : ''))
+          a(href='/users/login') Login
+      ul.right
+       li
+          a(href='/users/logout') Logout
+    .container
+     block content    
+   
