@@ -1,23 +1,33 @@
 extends layout
 
 block content
- h2 Sign up 
- form(method='post', action='/users/register',enctype='multipart/form-data')
+ h2 Sign up  
+ form(method='post', action='/users/signup',enctype='multipart/form-data')
   div
-   label Name
-   input(name='name', type='text', placeholder='Enter Name')
+   label Name  
+   input(class=(errors && errors.name ? 'input-error' : ''))(name='name', type='text', placeholder='Enter Name', value=(old && old.name ? old.name : ''))
+   if errors && errors.name
+    span.error-msg &nbsp;*&nbsp;#{errors.name.msg}
   div
    label Email
-   input(name='email', type='email', placeholder='Enter Email')
+   input(class=(errors && errors.email ? 'input-error' : ''))(name='email', type='email', placeholder='Enter Email', value=(old && old.email ? old.email : ''))
+   if errors && errors.email
+    span.error-msg &nbsp;*&nbsp;#{errors.email.msg}
   div
    label Username
-   input(name='username', type='text', placeholder='Enter Username')
+   input(class=(errors && errors.username ? 'input-error' : ''))(name='username', type='text', placeholder='Enter Username', value=(old && old.username ? old.username : ''))
+   if errors && errors.username
+    span.error-msg &nbsp;*&nbsp;#{errors.username.msg}
   div
    label Password
-   input(name='password', type='password', placeholder='Enter Password')
+   input(class=(errors && (errors.password || errors.passwordconfirm) ? 'input-error' : ''))(name='password', type='password', placeholder='Enter Password')
+   if errors && errors.password
+    span.error-msg &nbsp;*&nbsp;#{errors.password.msg}
+   if errors && errors.passwordconfirm
+    span.error-msg &nbsp;*&nbsp;#{errors.passwordconfirm.msg}
   div
    label Confirm
-   input(name='password2', type='password', placeholder='Confirm Password')
+   input(class=(errors && errors.passwordconfirm ? 'input-error' : ''))(name='passwordconfirm', type='password', placeholder='Confirm Password')   
   div
    label Profile Photo
    input(name='profilephoto', type='file')

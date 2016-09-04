@@ -7,12 +7,16 @@ a {
   color: #fff;
 }
 
-ul {
+div {
+	margin-bottom: 5px;
+}
+
+.menu ul {
     list-style: none;
     padding: 0;
     display: inline-block;
 }
-li {
+.menu li {
 	display: inline-block;
 	background-color: #2b6300;
 	padding: 10px;
@@ -38,7 +42,7 @@ input[type=email],
 textarea {
     padding: 10px;
     border: 1px solid #e5e5e5;
-    width: 200px;
+    width: 250px;
     color: #666;
     box-shadow: 0 0 2px #e5e5e5;
 
@@ -48,8 +52,18 @@ textarea {
         border: 1px solid #e6e6e6;
         box-shadow: #e6e6e6 0 0 2px;
     }
+}
 
+input.input-error, 
+textarea.input-error {
+	outline: none;
+	box-shadow: #f00 0 0 2px;
+	border: 1px solid #f00;
+}
 
+.error-msg {
+	font-weight: bold;
+	color: #f00;
 }
 
 textarea {
