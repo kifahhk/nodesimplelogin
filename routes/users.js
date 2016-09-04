@@ -5,6 +5,8 @@ var router = express.Router();
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' });
 
+var User = require ('../models/user');
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -32,7 +34,22 @@ router.post('/signup', upload.single('profilephoto'), function(req, res, next) {
   		old: req.body
   	});
   } else{
-  	console.log('No Errors');
+  	var newUser = new User({
+      name: req.body.name,
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+      profilephoto: req.body.profilephoto
+    });
+    User.createUser(newUser, function(err, user) {
+      if (err) throw err;
+      console.log(user);
+    });
+
+    req.flash('success', 'You have been registered successfully');
+
+    res.location('/');
+    res.redirect('/');
   }
 });
 

@@ -3,7 +3,8 @@ html(lang='en')
   head
     title Welcome
     link(href='/stylesheets/style.css', rel='stylesheet')
-  body        
+  body
+    != messages()    
     .menu
       ul
         li(class=(title == 'Users' ? 'active' : ''))
