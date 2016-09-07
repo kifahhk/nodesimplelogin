@@ -4,23 +4,32 @@ body {
 }
 
 a {
-  color: #fff;
+  	color: inherit;
+    text-decoration: inherit;
 }
 
 div {
 	margin-bottom: 5px;
 }
-
-.menu ul {
+.menu {
+	background-color: rgba(30, 59, 76, 0.7);
+}
+.menu ul {        
     list-style: none;
-    padding: 0;
+    padding: 10px;
     display: inline-block;
+    margin: 0;
 }
 .menu li {
 	display: inline-block;
-	background-color: #2b6300;
-	padding: 10px;
-	margin-right: 5px;
+    background-color: #fff;
+    padding: 10px;
+    margin-right: 10px;
+    color: #474e69;
+    text-decoration: none;
+}
+.menu li:hover, .menu li.active {
+	text-decoration: underline;
 }
 .right {
 	float: right;
@@ -84,22 +93,22 @@ label {
 input[type=submit] {
     width: 100px;
     height: 40px;
-    background-color: #333;
+    background-color: rgba(30, 59, 76, 0.7);
     color: #fff;
     border-radius: 3px;
     text-transform: uppercase;
     cursor: pointer;
+    border: 0;
 }
 
 #messages {
 	position: fixed;
-	top: 0;
+	top: 60px;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 	width: 300px;
-	height: 50px;
-	background-color: #ff8787;
+	height: 50px;	
 	color: #fff;
 	text-align: center;
 }

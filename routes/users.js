@@ -7,6 +7,9 @@ var upload = multer({ dest: 'uploads/' });
 
 var User = require ('../models/user');
 
+var saltHashPassword = require("../auth/hash");
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -28,6 +31,7 @@ router.post('/signup', upload.single('profilephoto'), function(req, res, next) {
   // Check Errors  
   var errors = req.validationErrors(true); // true for mapped Errors
 
+    
   if(errors){
   	res.render('signup', {
   		errors: errors,
@@ -38,9 +42,10 @@ router.post('/signup', upload.single('profilephoto'), function(req, res, next) {
       name: req.body.name,
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password,
+      password: saltHashPassword(req.body.password),
       profilephoto: req.body.profilephoto
     });
+    
     User.createUser(newUser, function(err, user) {
       if (err) throw err;
       console.log(user);
