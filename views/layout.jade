@@ -6,16 +6,16 @@ html(lang='en')
   body
     != messages()    
     .menu
-      ul
-        li(class=(title == 'Users' ? 'active' : ''))
-          a(href='/') Users
+      if !user
+       ul       
         li(class=(title == 'Sign up' ? 'active' : ''))
-          a(href='/users/signup') Sign up
+          a(href='/signup') Sign up
         li(class=(title == 'Login' ? 'active' : ''))
-          a(href='/users/login') Login
-      ul.right
-       li
-          a(href='/users/logout') Logout
+          a(href='/login') Login
+      if user
+       ul.right
+        li
+          a(href='/logout') Logout
     .container
      block content    
    

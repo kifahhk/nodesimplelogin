@@ -2,7 +2,7 @@ extends layout
 
 block content
  h2 Sign up  
- form(method='post', action='/users/signup',enctype='multipart/form-data')
+ form(method='post', action='/signup',enctype='multipart/form-data')
   div
    label Name  
    input(class=(errors && errors.name ? 'input-error' : ''))(name='name', type='text', placeholder='Enter Name', value=(old && old.name ? old.name : ''))
@@ -28,7 +28,8 @@ block content
   div
    label Confirm
    input(class=(errors && errors.passwordconfirm ? 'input-error' : ''))(name='passwordconfirm', type='password', placeholder='Confirm Password')   
-  div
+  div   
    label Profile Photo
-   input(name='profilephoto', type='file')
-  input(type='submit', name='submit',value='signup')
+   input(name='profilephoto', type='file')   
+  div
+   input(type='submit', name='submit',value='signup')

@@ -13,8 +13,7 @@ var passportLocalStrategy = require('passport-local').Strategy;
 
 var dp = mongoose.connection;
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var index = require('./routes/index');
 
 var app = express();
 
@@ -22,10 +21,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-
-// file uploads
-var multer  = require('multer');
-var upload = multer({ dest: 'uploads/' });
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -71,9 +66,12 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get('*', function(req, res, next){
+  res.locals.user = req.user || null;
+  next();
+});
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

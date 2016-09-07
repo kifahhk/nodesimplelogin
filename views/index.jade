@@ -1,4 +1,6 @@
 extends layout
 
 block content
-  h2 Users  
+  h2 Hello #{user.name}    
+  div.profilephoto
+   img(src="./uploads/#{user.profilephoto}")

@@ -12,6 +12,7 @@ div {
 	margin-bottom: 5px;
 }
 .menu {
+    min-height: 55px;
 	background-color: rgba(30, 59, 76, 0.7);
 }
 .menu ul {        
@@ -115,4 +116,7 @@ input[type=submit] {
 #messages ul {
 	list-style: none;
 	padding: 0;	
+}
+.profilephoto img {
+    max-width: 200px;
 }
